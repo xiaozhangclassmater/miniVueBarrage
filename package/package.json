@@ -1,0 +1,27 @@
+{
+  "name": "minivuebarrage",
+  "version": "0.1.0",
+  "private": false,
+  "description": "minivuebarrage 是一个轻量级的弹幕组件",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "xiaozhang",
+    "url": "https://github.com/xiaozhangclassmater"
+  },
+  "repository": {},
+  "engines": {
+    "node": ">= 10.0.0"
+  },
+  "keywords": [
+    "Barrage assembly",
+    "minivuebarrage"
+  ],
+  "license": "MIT",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
