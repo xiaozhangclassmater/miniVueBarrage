@@ -12,6 +12,8 @@
 
 [中文文档](https://xiaozhangclassmater.github.io/minivueBarrage-docs-web/#/home)
 
+![1689842440686](/assets/1689842440686.png)
+
 如何使用 ？ 
 
 vue2
