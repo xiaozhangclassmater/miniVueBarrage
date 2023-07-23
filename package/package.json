@@ -1,8 +1,9 @@
 {
   "name": "minivuebarrage",
-  "version": "0.1.0",
+  "version": "0.2.6",
   "private": false,
   "description": "minivuebarrage 是一个轻量级的弹幕组件",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +11,10 @@
     "name": "xiaozhang",
     "url": "https://github.com/xiaozhangclassmater"
   },
-  "repository": {},
+  "repository": {
+    "url": "https://github.com/xiaozhangclassmater/miniVueBarrage",
+    "type": "github"
+  },
   "engines": {
     "node": ">= 10.0.0"
   },

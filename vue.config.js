@@ -10,7 +10,7 @@ const resolve = (dir) => path.resolve(__dirname, dir)
 
 module.exports = defineConfig({
   publicPath: './',
-  outputDir: path.resolve(__dirname, './lib'),
+  outputDir: path.resolve(__dirname, './dist/lib'),
   transpileDependencies: true,
   productionSourceMap: false,
   chainWebpack(config) {
@@ -80,8 +80,12 @@ module.exports = defineConfig({
       isProduction && new CopyWebpackPlugin({
         patterns: [
           {
-            from: './package.json',
-            to: resolve('./lib/package.json'),
+            from: './package/package.json',
+            to: resolve('./dist/package.json'),
+          },
+          {
+            from: './README.md',
+            to: resolve('./dist/README.md'),
           }
         ]
       })

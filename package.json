@@ -1,12 +1,13 @@
 {
   "name": "minivuebarrage",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "description": "minivuebarrage 是一个轻量级的弹幕组件",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "report": "vue-cli-service build --report"
+    "report": "vue-cli-service build --report",
+    "package": "vue-cli-service build"
   },
   "dependencies": {
     "autoprefixer": "^10.4.14",
