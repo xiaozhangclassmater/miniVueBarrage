@@ -4,7 +4,8 @@
       <div class="barrage-half-screen" ref="halfScreenContainer">
         <template v-for="item in filterList.level1">
           <BarrageItem
-            :class="{'pauseAnimation' : isPause}"
+            :definstyle="definStyle"
+            :class="{'pauseAnimation' : pauseFlag}"
             :item="item"
             :key="item.id"
             @save="saveClientWidth"
@@ -15,7 +16,8 @@
       <div class="barrage-full-screen" v-if="fullScreen">
         <template v-for="item in filterList.level2">
           <BarrageItem
-            :class="{'pauseAnimation' : isPause}"
+            :definstyle="definStyle"
+            :class="{'pauseAnimation' : pauseFlag}"
             :item="item"
             :key="item.id"
             @save="saveClientWidth"
@@ -74,12 +76,14 @@ export default {
       type: Number,
       default: 10
     },
+    jumpLinkFlag: {
+      type: Boolean,
+      default: false
+    },
     // 用户自己发布的弹幕的样式,可配置
     definStyle: {
       type: Object,
-      default: () => ({
-        border: "0.005rem solid rgba(255,117,21,1)"
-      })
+      default: () => ({})
     },
     barrageTypeCallback: {
       type: Function
@@ -96,7 +100,7 @@ export default {
     return {
       barrageManager: null,
       currentRow: 0, // 当前弹幕在第几行生成
-      isPause: false
+      pauseFlag: false
     };
   },
   methods: {
@@ -121,7 +125,8 @@ export default {
       this.barrageManager.reset(barrages);
     },
     pause() {
-      this.isPause = !this.isPause;
+      this.pauseFlag = !this.pauseFlag;
+      this.barrageManager.pause();
     },
     close() {
       this.barrageManager.close();
@@ -130,15 +135,18 @@ export default {
     play(barrages) {
       let isRun = this.barrageManager.getBarrageTimer(); // 是否正在运行
       if (isRun) return;
+      if (this.barrageManager.getPauseFlag()) {
+        this.pauseFlag = !this.pauseFlag;
+      }
       this.barrageManager.saveOffsetWidth(this.getBarrageCtnOffsetWidth);
       this.barrageManager.play(barrages);
     },
     resetState() {
-      this.isPause = false;
+      this.pauseFlag = false;
       this.currentRow = 0;
     },
     changeColor(color) {
-      this.barrageManager.setDefautColor(color);
+      this.barrageManager.setDefaultColor(color);
     },
     saveClientWidth(clientWidth) {
       if (this.currentRow >= this.rows / 2) {

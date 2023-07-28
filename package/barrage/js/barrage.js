@@ -1,7 +1,7 @@
 
 export class Barrage {
   constructor(barrage) {
-    const { id, delay, level, top, url, content, type , color , animationPlayState , ...args } = barrage
+    const { id, delay, level, top, url, content, type, color, animationPlayState, imgLink, ...args } = barrage
     this.id = id;
     this.delay = delay;
     this.level = level;
@@ -9,9 +9,11 @@ export class Barrage {
     this.url = url;
     this.content = content;
     this.type = type;
-    this.animationPlayState = animationPlayState; // 设计弹幕 是否可 点击暂停功能
+    this.imgLink = imgLink;
     this.color = color;
+    this.animationPlayState = animationPlayState; // 设计弹幕 是否可 点击暂停功能
     this.args = args
+
   }
 }
 

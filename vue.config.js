@@ -6,6 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path')
 
 const isProduction = process.env.NODE_ENV === 'production'
+
 const resolve = (dir) => path.resolve(__dirname, dir)
 
 module.exports = defineConfig({
@@ -14,7 +15,7 @@ module.exports = defineConfig({
   transpileDependencies: true,
   productionSourceMap: false,
   chainWebpack(config) {
-    config.plugins.delete('html')
+    isProduction && config.plugins.delete('html')  // 删除HTMLPlugin
   },
   css: {
     extract: {
@@ -45,7 +46,7 @@ module.exports = defineConfig({
   configureWebpack: {
     entry: isProduction ? './package/index.js' : './src/main.js',
     output: {
-      filename: 'index.js',
+      filename: isProduction ? 'index.js' : '[name].js',
       libraryTarget: 'umd',
       library: 'miniVueBarrage',
     },
@@ -66,7 +67,7 @@ module.exports = defineConfig({
             }
           }
         }
-        ) : {}
+        ) : ''
       ]
     },
     externals: {

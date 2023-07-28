@@ -1,24 +1,22 @@
 <template>
   <div
-    class="barrage-item start ordinaryOperate"
+    class="barrage-item start common"
     :class="[options ? options.className : '' , isPause ? 'pausedAnimation' : '']"
     ref="item"
     :style="bindStyle"
     @click="handleClickBarrage(item.url)"
     @animationend="destroyBarrageItem(item)"
   >
-    <!-- <icon :options="options.children" v-if="options.children"></icon> -->
-    <VueSvg v-if="isMyBarrage" />
+    <Icon :options="item" />
     {{ item.content }}
   </div>
 </template>
 
 <script>
 import { BarrageType } from "../constant";
-import VueSvg from "./VueSvg.vue";
-import icon from "./icon.vue";
+import Icon from "./Icon.vue";
 export default {
-  components: { icon, VueSvg },
+  components: { Icon },
   name: "barrageItem",
   props: {
     item: {
@@ -26,6 +24,10 @@ export default {
       default: () => {}
     },
     options: {
+      type: Object,
+      default: () => ({})
+    },
+    definstyle: {
       type: Object,
       default: () => ({})
     }
@@ -53,7 +55,7 @@ export default {
     },
     bindBraageItemStyle() {
       const { delay, top, color, args } = this.item;
-      console.log("top", top);
+      console.log("", this.item);
       return {
         "--runTime": delay,
         "--offsetWidth": `-${args.offsetWidth}px`,
@@ -62,8 +64,11 @@ export default {
       };
     },
     bindStyle() {
+      const userBarrageStyle =
+        this.item?.type === BarrageType.MYBARRAGE ? this.definstyle : {};
       return {
-        ...this.bindBraageItemStyle
+        ...this.bindBraageItemStyle,
+        ...userBarrageStyle
       };
     }
   }
@@ -93,12 +98,8 @@ export default {
   animation-play-state: paused !important;
 }
 // 普通运营样式
-.ordinaryOperate {
-  background-image: linear-gradient(
-    95deg,
-    rgba(48, 108, 255, 0.2) 0%,
-    rgba(165, 207, 255, 0.2) 100%
-  );
+.common {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .start {

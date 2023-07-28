@@ -1,6 +1,6 @@
 {
   "name": "minivuebarrage",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "private": false,
   "description": "minivuebarrage 是一个轻量级的弹幕组件",
   "main": "./lib/index.js",
