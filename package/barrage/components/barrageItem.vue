@@ -14,7 +14,7 @@
 
 <script>
 import { BarrageType } from "../constant";
-import Icon from "./Icon.vue";
+import Icon from "./icon.vue";
 export default {
   components: { Icon },
   name: "barrageItem",
