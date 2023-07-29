@@ -73,9 +73,9 @@ export default {
         }]
     };
   },
-    computed () {
+    computed: {
         myStyle(){
-            return : { border : '1px solid red' }
+            return { border : '1px solid red' }
         }
     }  
 };
@@ -100,6 +100,7 @@ export default {
 
 ~~~js
   add(e) {
+      // this.value 代表输入的弹幕值
       if (!this.value.trim()) return;
       this.$refs.barrage.add({
         content: this.value
@@ -112,6 +113,7 @@ export default {
 
 ~~~JS
  changeColor() {
+      // this.color 代表选择的颜色字符串 比如:'#000000'
       this.$refs.barrage.changeColor(this.color);
  }
 ~~~
