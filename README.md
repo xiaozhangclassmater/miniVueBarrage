@@ -44,6 +44,7 @@ This plugin can help you quickly create a pop-up view container, you can specify
 `main.js`
 
 ~~~js
+//全局组件
 import miniVueBarrage from 'minivuebarrage'
 import 'minivuebarrage/lib/mini-vue-barrage.css'
 import Vue from 'vue'
@@ -51,12 +52,22 @@ import Vue from 'vue'
 Vue.use(miniVueBarrage)
 ~~~
 
+or
+
+~~~js
+// 局部组件
+import { miniVueBarrage } from "minivuebarrage";
+import "minivuebarrage/lib/mini-vue-barrage.css";
+~~~
+
+
+
 `components`
 
 ~~~vue
 <template>
   <div class="Home">
-    <miniVueBarrage class="barrages-ctn" fullScreen :definStyle='myStyle' :barrages="barrages" />
+    <miniVueBarrage class="barrages-ctn" ref='barrage' fullScreen :definStyle='myStyle' :barrages="barrages" />
   </div>
 </template>
 <script>
@@ -134,8 +145,7 @@ export default {
 | rows            | Number      | 8       | false     | 弹幕的弹道 ，可使每条弹幕在对应的弹道中 不重复 叠加 |
 | fullScreen      | Boolean     | false   | false     | 你是否需要全屏弹幕                                  |
 | createTime      | Number      | 1s      | false     | 你希望每多少秒创建一次弹幕                          |
-| delay           | Number      | 8s      | false     | 你希望弹幕需要多少秒滚动一屏,弹幕文组滑过容器的时间 |
-| barrageLen      | Number      | 20      | false     | 发布弹幕的字数控制                                  |
+| delay           | Number      | 8s      | false     | 你希望弹幕需要多少秒滚动一屏,弹幕文组滑过容器的时间 |                            |
 | isBatchDestory  | Boolean     | false   | false     | 是否需要批量销毁弹幕                                |
 | batchDestoryNum | Number      | 10      | false     | 每次批量销毁的弹幕数量                              |
 | definStyle      | Object      | {}      | false     | 用户自己发布的弹幕的样式,可配置                     |
