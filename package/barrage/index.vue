@@ -66,11 +66,6 @@ export default {
       type: Number,
       default: 1
     },
-    // 发布弹幕的字数控制
-    barrageLen: {
-      type: Number,
-      default: 20
-    },
     // 是否需要批量销毁弹幕
     isBatchDestory: {
       type: Boolean,
@@ -127,6 +122,9 @@ export default {
     },
     // 重置弹幕
     reset(barrages) {
+      if (this.barrageManager.getPauseFlag()) {
+        this.pauseFlag = !this.pauseFlag;
+      }
       this.barrageManager.reset(barrages);
     },
     pause() {
