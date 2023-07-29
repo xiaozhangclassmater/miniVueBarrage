@@ -4,7 +4,7 @@ const data = Mock.mock({
     id: '@id',
     type: "common",
     content: '@name',
-    url: Mock.Random.url(),
+    url: 'https://www.baidu.com',
     imgLink: Mock.Random.image()
   }]
 })

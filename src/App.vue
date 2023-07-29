@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <miniVueBarrage />
-    <!-- <Barrage :barrages="barrages" :definStyle="myStyle" isBatchDestory fullScreen ref="barrage"></Barrage>
+    <!-- <miniVueBarrage /> -->
+    <Barrage :barrages="barrages" :definStyle="myStyle" isBatchDestory fullScreen ref="barrage"></Barrage>
     <div class="operation">
       <input type="text" v-model="value" @keyup.enter="add()" />
       <br />
@@ -19,7 +19,7 @@
         <input type="color" name id v-model="color" />
         <button @click="changeColor">切换颜色</button>
       </div>
-    </div>-->
+    </div>
   </div>
 </template>
 <script>

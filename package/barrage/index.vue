@@ -5,9 +5,11 @@
         <template v-for="item in filterList.level1">
           <BarrageItem
             :definstyle="definStyle"
+            :jumpLinkFlag="jumpLinkFlag"
             :class="{'pauseAnimation' : pauseFlag}"
             :item="item"
             :key="item.id"
+            @close="close"
             @save="saveClientWidth"
             @destory="destoryBraageItem"
           />
@@ -17,9 +19,11 @@
         <template v-for="item in filterList.level2">
           <BarrageItem
             :definstyle="definStyle"
+            :jumpLinkFlag="jumpLinkFlag"
             :class="{'pauseAnimation' : pauseFlag}"
             :item="item"
             :key="item.id"
+            @close="close"
             @save="saveClientWidth"
             @destory="destoryBraageItem"
           />
@@ -76,9 +80,10 @@ export default {
       type: Number,
       default: 10
     },
+    //是否需要点击链接后跳转页面
     jumpLinkFlag: {
       type: Boolean,
-      default: false
+      default: true
     },
     // 用户自己发布的弹幕的样式,可配置
     definStyle: {

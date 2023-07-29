@@ -1,6 +1,6 @@
 {
   "name": "minivuebarrage",
-  "version": "0.2.0",
+  "version": "0.2.8",
   "private": false,
   "description": "minivuebarrage 是一个轻量级的弹幕组件",
   "scripts": {

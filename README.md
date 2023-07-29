@@ -5,7 +5,6 @@
 **npm版本** 
 
 8.5.1
-s
 **node 版本** 
 
 `>10.0.0`
@@ -18,13 +17,13 @@ s
 
 vue2
 
-~~~js
+~~~sh
 npm i minivueBarrage 
 ~~~
 
 或
 
-~~~makefile
+~~~sh
 yarn add minivueBarrage
 ~~~
 
@@ -34,11 +33,7 @@ yarn add minivueBarrage
 
 中文
 
-minivueBarrage 是一款用vue框架开发的弹幕组件，弹幕遵循高可用，高配置，它 提供了弹幕的 重置 开启 关闭 暂停 是否全屏 ，速度 颜色等等丰富的功能
-
-英文（en）
-
-minivueBarrage is a barrage component developed with the vue framework. Barrage follows a high availability, high configuration, it provides barrage reset, on, off, pause whether full screen, speed color and so on rich features
+minivueBarrage 是一款用vue框架开发的弹幕组件，弹幕遵循高可用，高配置，它 提供了弹幕的 重置 开启 关闭 暂停 是否全屏,自定义icon和定义用户发布的弹幕样式 ，速度 颜色等等丰富的功能
 
 
 
@@ -49,7 +44,7 @@ This plugin can help you quickly create a pop-up view container, you can specify
 `main.js`
 
 ~~~js
-import miniVueBarrage from 'minivuebarrage/'
+import miniVueBarrage from 'minivuebarrage'
 import 'minivuebarrage/lib/mini-vue-barrage.css'
 import Vue from 'vue'
 
@@ -61,7 +56,7 @@ Vue.use(miniVueBarrage)
 ~~~vue
 <template>
   <div class="Home">
-    <miniVueBarrage class="barrages-ctn":barrages="barrages" />
+    <miniVueBarrage class="barrages-ctn" fullScreen :definStyle='myStyle' :barrages="barrages" />
   </div>
 </template>
 <script>
@@ -70,13 +65,19 @@ export default {
   data() {
     return {
         barrages: [{
-            content:"Michelle Young"
-            id:"110000200606013327"
-            type:"common"
-            url:""
+            content:"Michelle Young", // 弹幕内容
+            id:"110000200606013327", // 弹幕id
+            type:"common", // 弹幕类型
+            url:"", // 决定你跳转的页面 
+            imgLink : '', // 支持 http 链接 or base64字符串 弹幕的icon 默认为 VueIcon
         }]
     };
   },
+    computed () {
+        myStyle(){
+            return : { border : '1px solid red' }
+        }
+    }  
 };
 </script>
 
@@ -125,15 +126,16 @@ export default {
 
 ### **入参选项列表**
 
-| props           | type        | default                                     | isRrquire | desc                                                |
-| --------------- | ----------- | ------------------------------------------- | --------- | --------------------------------------------------- |
-| barrages        | Array \| [] | []                                          | true      | 弹幕数组                                            |
-| rows            | Number      | 8                                           | false     | 弹幕的弹道 ，可使每条弹幕在对应的弹道中 不重复 叠加 |
-| fullScreen      | Boolean     | false                                       | false     | 你是否需要全屏弹幕                                  |
-| createTime      | Number      | 1s                                          | false     | 你希望每多少秒创建一次弹幕                          |
-| delay           | Number      | 8s                                          | false     | 你希望弹幕需要多少秒滚动一屏,弹幕文组滑过容器的时间 |
-| barrageLen      | Number      | 20                                          | false     | 发布弹幕的字数控制                                  |
-| isBatchDestory  | Boolean     | false                                       | false     | 是否需要批量销毁弹幕                                |
-| batchDestoryNum | Number      | 10                                          | false     | 每次批量销毁的弹幕数量                              |
-| definStyle      | Object      | border: "0.005rem solid rgba(255,117,21,1)" | false     | 用户自己发布的弹幕的样式,可配置                     |
+| props           | type        | default | isRrquire | desc                                                |
+| --------------- | ----------- | ------- | --------- | --------------------------------------------------- |
+| barrages        | Array \| [] | []      | true      | 弹幕数组                                            |
+| rows            | Number      | 8       | false     | 弹幕的弹道 ，可使每条弹幕在对应的弹道中 不重复 叠加 |
+| fullScreen      | Boolean     | false   | false     | 你是否需要全屏弹幕                                  |
+| createTime      | Number      | 1s      | false     | 你希望每多少秒创建一次弹幕                          |
+| delay           | Number      | 8s      | false     | 你希望弹幕需要多少秒滚动一屏,弹幕文组滑过容器的时间 |
+| barrageLen      | Number      | 20      | false     | 发布弹幕的字数控制                                  |
+| isBatchDestory  | Boolean     | false   | false     | 是否需要批量销毁弹幕                                |
+| batchDestoryNum | Number      | 10      | false     | 每次批量销毁的弹幕数量                              |
+| definStyle      | Object      | {}      | false     | 用户自己发布的弹幕的样式,可配置                     |
+| jumpLinkFlag    | Boolean     | false   | false     | 是否需要点击链接后跳转页面                          |
 

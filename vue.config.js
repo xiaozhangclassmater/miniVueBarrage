@@ -7,6 +7,9 @@ const path = require('path')
 
 const isProduction = process.env.NODE_ENV === 'production'
 
+
+console.log(isProduction)
+
 const resolve = (dir) => path.resolve(__dirname, dir)
 
 module.exports = defineConfig({
@@ -70,9 +73,9 @@ module.exports = defineConfig({
         ) : ''
       ]
     },
-    externals: {
+    externals: isProduction ? {
       'vue': 'Vue',
-    },
+    } : {},
 
     plugins: [
       new HtmlMinimizerPlugin(),

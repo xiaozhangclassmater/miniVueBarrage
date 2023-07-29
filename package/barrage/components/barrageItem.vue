@@ -30,6 +30,10 @@ export default {
     definstyle: {
       type: Object,
       default: () => ({})
+    },
+    jumpLinkFlag: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -46,7 +50,13 @@ export default {
       this.$emit("destory", item);
     },
     handleClickBarrage(href) {
-      this.isPause = !this.isPause;
+      console.log("", this.jumpLinkFlag, href);
+      if (this.jumpLinkFlag && href) {
+        window.location.href = href;
+        this.$emit("close");
+      } else {
+        this.isPause = !this.isPause;
+      }
     }
   },
   computed: {
