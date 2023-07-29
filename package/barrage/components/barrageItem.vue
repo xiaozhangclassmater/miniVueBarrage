@@ -50,7 +50,6 @@ export default {
       this.$emit("destory", item);
     },
     handleClickBarrage(href) {
-      console.log("", this.jumpLinkFlag, href);
       if (this.jumpLinkFlag && href) {
         window.location.href = href;
         this.$emit("close");
@@ -65,7 +64,6 @@ export default {
     },
     bindBraageItemStyle() {
       const { delay, top, color, args } = this.item;
-      console.log("", this.item);
       return {
         "--runTime": delay,
         "--offsetWidth": `-${args.offsetWidth}px`,
