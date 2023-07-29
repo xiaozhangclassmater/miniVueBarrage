@@ -50,8 +50,10 @@ module.exports = defineConfig({
     entry: isProduction ? './package/index.js' : './src/main.js',
     output: {
       filename: isProduction ? 'index.js' : '[name].js',
-      libraryTarget: 'umd',
-      library: 'miniVueBarrage',
+      library: {
+        name: 'miniVueBarrage',
+        type: 'umd'
+      },
     },
     optimization: {
       minimize: isProduction,

@@ -18,13 +18,13 @@
 vue2
 
 ~~~sh
-npm i minivueBarrage 
+npm i minivuebarrage 
 ~~~
 
 或
 
 ~~~sh
-yarn add minivueBarrage
+yarn add minivuebarrage
 ~~~
 
 
