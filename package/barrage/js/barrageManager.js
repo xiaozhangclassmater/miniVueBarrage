@@ -178,6 +178,7 @@ export class BarrageManager {
     this.maxDeleteCounter = 0
     this.lastDeleteCounter = 0
     this.pauseFlag = false
+    this.defaultColor = '#fff'
     this.everyRowsLengths = new Array(this.maxRows).fill(0)
   }
 
