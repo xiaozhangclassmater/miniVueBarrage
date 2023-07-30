@@ -1,7 +1,15 @@
 <template>
   <div id="app">
     <!-- <miniVueBarrage /> -->
-    <Barrage :barrages="barrages" :definStyle="myStyle" isBatchDestory fullScreen ref="barrage"></Barrage>
+    <miniVueBarrage
+      :barrages="barrages"
+      :definStyle="myStyle"
+      :createTime="0.5"
+      :jumpLinkFlag="false"
+      isBatchDestory
+      fullScreen
+      ref="barrage"
+    ></miniVueBarrage>
     <div class="operation">
       <input type="text" v-model="value" @keyup.enter="add()" />
       <br />
@@ -25,9 +33,12 @@
 <script>
 import data from "../Mock/index";
 import Barrage from "../package/barrage/index.vue";
+// import { miniVueBarrage } from "../dist/lib";
+// import "../dist/lib/mini-vue-barrage.css";
 export default {
   components: {
     Barrage
+    // miniVueBarrage
   },
   data() {
     return {

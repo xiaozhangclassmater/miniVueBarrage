@@ -1,7 +1,7 @@
 
 <template>
   <div class="barrage-Icon">
-    <img class="icon" v-if="isHttpOrbase64" :src="options.imgLink" alt />
+    <img class="icon" v-if="isHttpOrbase64" :src="options.Icon" alt />
     <img v-else src="../assets/vue.png" alt />
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     isHttpOrbase64() {
-      return /^(http|https|data:.*;base64)/.test(this.options?.imgLink || "");
+      return /^(http|https|data:.*;base64)/.test(this.options?.Icon || "");
     }
   }
 };

@@ -84,9 +84,6 @@ export default {
     definStyle: {
       type: Object,
       default: () => ({})
-    },
-    barrageTypeCallback: {
-      type: Function
     }
   },
   created() {

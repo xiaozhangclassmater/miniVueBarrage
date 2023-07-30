@@ -1,19 +1,21 @@
 # minivueBarrage
 
-## 版本
+## edition
 
 **npm版本** 
 
 8.5.1
 **node 版本** 
 
-`>10.0.0`
+`node": ">=6.11.5"`
 
-[中文文档](https://xiaozhangclassmater.github.io/minivueBarrage-docs-web/#/home)
+[中文文档](https://xiaozhangclassmater.github.io/minivueBarrage-docs-web/#/dashboard)
 
-![1689842440686](/assets/1689842440686.png)
+![1689842440686](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/00bbb720ed084520adcafaf7a4db96f7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
 
-如何使用 ？ 
+
+
+如何使用 ？ （How to use it?）
 
 vue2
 
@@ -29,13 +31,9 @@ yarn add minivuebarrage
 
 
 
-## desc（描述）
+## Description（描述）
 
-中文
-
-minivueBarrage 是一款用vue框架开发的弹幕组件，弹幕遵循高可用，高配置，它 提供了弹幕的 重置 开启 关闭 暂停 是否全屏,自定义icon和定义用户发布的弹幕样式 ，速度 颜色等等丰富的功能
-
-
+minivueBarrage is a barrage component developed with the vue framework. It provides barrage resetting, opening, closing and pausing full screen, customizing ICONS, and defining user-published barrage styles, speed colors, and more
 
 ## Usage（使用）
 
@@ -80,7 +78,7 @@ export default {
             id:"110000200606013327", // 弹幕id
             type:"common", // 弹幕类型
             url:"", // 决定你跳转的页面 
-            imgLink : '', // 支持 http 链接 or base64字符串 弹幕的icon 默认为 VueIcon
+            Icon : '', // 支持 http 链接 or base64字符串 弹幕的icon 默认为 VueIcon
         }]
     };
   },
@@ -94,18 +92,33 @@ export default {
 
 ~~~
 
+| 字段(fields) | 类型(type) | 是否必填(require) | 描述(desc)                                                   |
+| ------------ | ---------- | ----------------- | ------------------------------------------------------------ |
+| content      | string     | true              | 弹幕内容                                                     |
+| id           | number     | true              | 弹幕id                                                       |
+| type         | string     | true              | 弹幕类型                                                     |
+| url          | string     | false             | 决定你跳转的页面                                             |
+| className    | string     | false             | 当前弹幕的类名                                               |
+| Icon         | string     | false             | 弹幕的icon 支持 http 链接 or base64字符串 弹幕的icon 默认为 VueIcon |
+
+**详解**:
+
+**className** ： 如果你需要给特殊类型的弹幕进行样式定制，那你只需要给当前这条弹幕传入类名，我们会自动绑定该类，你可以在组件外部尽情的更改样式，也许它会对你有帮助（If you need to style a particular type of screen, just pass in the class name for the current screen, we will automatically bind the class, you can change the style outside the component as much as you like, maybe it will help you）
+
+**Icon** ： 如果你需要给弹幕绑定Icon小图标，那你可以在当前弹幕对象中添加该属性，我会帮助你完成渲染，也许它会对你有帮助（If you need to attach a small Icon to a bullet screen, then you can add this property to the current bullet screen object, I will help you finish rendering, maybe it will help you）
+
 ### 高级用法
 
-我们对该组件实例本身暴露了以下几个方法。
+我们对该组件实例本身暴露了以下几个方法（We exposed the following methods to the component instance itself.）。
 
-| name        | 组件实例         | type                       | desc         |
-| ----------- | ---------------- | -------------------------- | ------------ |
-| add         | 实例本身即可调用 | function(barrageItme){}    | 添加弹幕     |
-| reset       | 实例本身即可调用 | function(){}               | 重置弹幕     |
-| pause       | 实例本身即可调用 | function(){}               | 暂停弹幕     |
-| close       | 实例本身即可调用 | function(){}               | 关闭弹幕     |
-| play        | 实例本身即可调用 | function(){}               | 开启运行弹幕 |
-| changeColor | 实例本身即可调用 | function(color : string){} | 更改弹幕颜色 |
+| 字段(fields) | 组件实例         | type                       | desc         |
+| ------------ | ---------------- | -------------------------- | ------------ |
+| add          | 实例本身即可调用 | function(barrageItme){}    | 添加弹幕     |
+| reset        | 实例本身即可调用 | function(){}               | 重置弹幕     |
+| pause        | 实例本身即可调用 | function(){}               | 暂停弹幕     |
+| close        | 实例本身即可调用 | function(){}               | 关闭弹幕     |
+| play         | 实例本身即可调用 | function(){}               | 开启运行弹幕 |
+| changeColor  | 实例本身即可调用 | function(color : string){} | 更改弹幕颜色 |
 
 `add`
 
@@ -137,7 +150,7 @@ export default {
  }	,
 ~~~
 
-### **入参选项列表**
+### **参数列表**（Parameter list）
 
 | props           | type        | default | isRrquire | desc                                                |
 | --------------- | ----------- | ------- | --------- | --------------------------------------------------- |

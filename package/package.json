@@ -16,10 +16,9 @@
     "type": "github"
   },
   "engines": {
-    "node": ">= 10.0.0"
+    "node": ">=6.11.5"
   },
   "keywords": [
-    "Barrage assembly",
     "minivuebarrage"
   ],
   "license": "MIT",

@@ -1,11 +1,12 @@
 const Mock = require('mockjs');
 const data = Mock.mock({
-  'list|1-100': [{
+  'list|1-1000': [{
     id: '@id',
     type: "common",
     content: '@name',
     url: 'https://www.baidu.com',
-    imgLink: Mock.Random.image()
+    Icon: Mock.Random.image(),
+    className: 'odration'
   }]
 })
 

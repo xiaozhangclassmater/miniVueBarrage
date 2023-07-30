@@ -1,9 +1,9 @@
 <template>
   <div
     class="barrage-item start common"
-    :class="[options ? options.className : '' , isPause ? 'pausedAnimation' : '']"
+    :class="bindItemClassName"
     ref="item"
-    :style="bindStyle"
+    :style="bindItemStyle"
     @click="handleClickBarrage(item.url)"
     @animationend="destroyBarrageItem(item)"
   >
@@ -71,13 +71,19 @@ export default {
         color
       };
     },
-    bindStyle() {
+    bindItemStyle() {
       const userBarrageStyle =
         this.item?.type === BarrageType.MYBARRAGE ? this.definstyle : {};
       return {
         ...this.bindBraageItemStyle,
         ...userBarrageStyle
       };
+    },
+    bindItemClassName() {
+      return [
+        this.isPause ? "pausedAnimation" : "",
+        this.item?.className ? this.item.className : ""
+      ];
     }
   }
 };

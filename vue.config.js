@@ -19,6 +19,7 @@ module.exports = defineConfig({
   productionSourceMap: false,
   chainWebpack(config) {
     isProduction && config.plugins.delete('html')  // 删除HTMLPlugin
+    isProduction && config.plugins.delete('copy')
   },
   css: {
     extract: {
