@@ -1,6 +1,6 @@
 # minivueBarrage
 
-## edition
+## Version description(版本说明)
 
 **npm版本** 
 
