@@ -63,7 +63,7 @@ import "minivuebarrage/lib/mini-vue-barrage.css";
 `components`
 
 ~~~vue
-<template>
+当前弹幕的类名 可根据类名绑定样式<template>
   <div class="Home">
     <miniVueBarrage class="barrages-ctn" ref='barrage' fullScreen :definStyle='myStyle' :barrages="barrages" />
   </div>
@@ -78,6 +78,8 @@ export default {
             id:"110000200606013327", // 弹幕id
             type:"common", // 弹幕类型
             url:"", // 决定你跳转的页面 
+            delay ： 5, // 决定你弹幕的运行速度 单位为 s
+            className ： ‘’, // 当前弹幕的类名 可根据类名绑定样式
             Icon : '', // 支持 http 链接 or base64字符串 弹幕的icon 默认为 VueIcon
         }]
     };

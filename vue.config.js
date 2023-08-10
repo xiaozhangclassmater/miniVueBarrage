@@ -1,14 +1,8 @@
 const { defineConfig } = require('@vue/cli-service')
-const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path')
 
 const isProduction = process.env.NODE_ENV === 'production'
-
-
-console.log(isProduction)
 
 const resolve = (dir) => path.resolve(__dirname, dir)
 
@@ -56,34 +50,8 @@ module.exports = defineConfig({
         type: 'umd'
       },
     },
-    optimization: {
-      minimize: isProduction,
-      minimizer: [
-        isProduction ? new TerserPlugin({
-          terserOptions: {
-            nameCache: true,
-            compress: {
-              drop_console: true,
-              drop_debugger: true,
-              pure_funcs: ["console.log"] // 移除console
-            },
-            output: {
-              beautify: true, // 压缩注释
-              comments: false,
-            }
-          }
-        }
-        ) : ''
-      ]
-    },
-    externals: isProduction ? {
-      'vue': 'Vue',
-    } : {},
 
     plugins: [
-      new HtmlMinimizerPlugin(),
-      new CssMinimizerPlugin(),
-
       isProduction && new CopyWebpackPlugin({
         patterns: [
           {

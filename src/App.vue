@@ -32,13 +32,13 @@
 </template>
 <script>
 import data from "../Mock/index";
+import { miniVueBarrage } from "../dist/lib";
+import "../dist/lib/mini-vue-barrage.css";
 import Barrage from "../package/barrage/index.vue";
-// import { miniVueBarrage } from "../dist/lib";
-// import "../dist/lib/mini-vue-barrage.css";
 export default {
   components: {
-    Barrage
-    // miniVueBarrage
+    Barrage,
+    miniVueBarrage
   },
   data() {
     return {
